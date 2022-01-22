@@ -7,7 +7,7 @@ from django.db import models
 from django.urls import reverse
 from django.template.defaultfilters import slugify
 from django.core.files import File
-from orla.settings import BASE_URL
+from django.conf import settings
 
 # Create your models here.
 class Category(models.Model):
@@ -30,17 +30,17 @@ class Category(models.Model):
 
     def get_image(self):
         if self.image:
-            return BASE_URL + self.image.url
+            return settings.BASE_URL + self.image.url
         return ""
 
     def get_thumbnail(self):
         if self.thumbnail:
-            return BASE_URL + self.thumbnail.url
+            return settings.BASE_URL + self.thumbnail.url
         else:
             if self.image:
-                self.thumbnail = self.make_thumnail(self.image)
+                self.thumbnail = self.make_thumbnail(self.image)
                 self.save()
-                return BASE_URL + self.thumbnail.url
+                return settings.BASE_URL + self.thumbnail.url
             else:
                 return ""
 
@@ -81,17 +81,17 @@ class Product(models.Model):
 
     def get_image(self):
         if self.image:
-            return BASE_URL + self.image.url
+            return settings.BASE_URL + self.image.url
         return ""
 
     def get_thumbnail(self):
         if self.thumbnail:
-            return BASE_URL + self.thumbnail.url
+            return settings.BASE_URL + self.thumbnail.url
         else:
             if self.image:
-                self.thumbnail = self.make_thumnail(self.image)
+                self.thumbnail = self.make_thumbnail(self.image)
                 self.save()
-                return BASE_URL + self.thumbnail.url
+                return settings.BASE_URL + self.thumbnail.url
             else:
                 return ""
 
