@@ -10,6 +10,7 @@ black = "*"
 pillow = "*"
 django-cors-headers = "*"
 djoser = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
