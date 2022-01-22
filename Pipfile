@@ -7,6 +7,9 @@ name = "pypi"
 django = "*"
 djangorestframework = "*"
 black = "*"
+pillow = "*"
+django-cors-headers = "*"
+djoser = "*"
 
 [dev-packages]
 
